@@ -1,0 +1,27 @@
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}
+
+.header {
+  margin-bottom: var(--space-5);
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+}
+
+.description {
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 639px) {
+  .page {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+}

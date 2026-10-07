@@ -1,0 +1,68 @@
+.label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.input,
+.select {
+  height: var(--control-height);
+  border: 1px solid var(--color-border-control);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.input {
+  width: 100%;
+  padding: 0 var(--space-3);
+}
+
+.select {
+  padding: 0 var(--space-2);
+}
+
+.button {
+  height: var(--control-height);
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-border-control);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.button:hover {
+  background: var(--color-surface-hover);
+}
+
+.button[aria-disabled="true"] {
+  border-color: var(--color-border);
+  color: var(--color-text-muted);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button[aria-disabled="true"]:hover {
+  background: var(--color-surface);
+}
+
+.buttonPrimary {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.buttonPrimary:hover {
+  border-color: var(--color-accent-hover);
+  background: var(--color-accent-hover);
+}
+
+@media (max-width: 639px) {
+  .input,
+  .select,
+  .button {
+    height: var(--touch-target);
+  }
+}

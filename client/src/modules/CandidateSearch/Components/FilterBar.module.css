@@ -1,0 +1,92 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-3);
+}
+
+.searchField {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: var(--space-3);
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.searchInput {
+  padding-left: calc(var(--space-3) + 16px + var(--space-2));
+  padding-right: var(--control-height);
+}
+
+/* The component provides its own clear button. */
+.searchInput::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+.clearSearch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: var(--control-height);
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.clearSearch:hover {
+  color: var(--color-text);
+}
+
+.clearSearch:focus-visible {
+  outline-offset: -4px;
+}
+
+.clearSearch svg {
+  width: 14px;
+  height: 14px;
+}
+
+.statusSelect {
+  min-width: 160px;
+}
+
+@media (max-width: 639px) {
+  .bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchField {
+    flex-basis: auto;
+  }
+
+  .statusSelect {
+    width: 100%;
+  }
+
+  .searchInput {
+    padding-right: var(--touch-target);
+  }
+
+  .clearSearch {
+    width: var(--touch-target);
+  }
+}

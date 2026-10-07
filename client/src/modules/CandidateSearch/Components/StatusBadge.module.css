@@ -1,0 +1,29 @@
+.badge {
+  display: inline-block;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.new {
+  background: var(--badge-new-bg);
+  color: var(--badge-new-text);
+}
+
+.contacted {
+  background: var(--badge-contacted-bg);
+  color: var(--badge-contacted-text);
+}
+
+.interviewing {
+  background: var(--badge-interviewing-bg);
+  color: var(--badge-interviewing-text);
+}
+
+.hired {
+  background: var(--badge-hired-bg);
+  color: var(--badge-hired-text);
+}

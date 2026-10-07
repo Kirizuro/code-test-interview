@@ -1,0 +1,139 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.headerCell {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.body {
+  transition: opacity 150ms linear;
+}
+
+/* The delay keeps fast responses from flickering. */
+.table[aria-busy="true"] .body {
+  opacity: 0.5;
+  transition-delay: 150ms;
+}
+
+.row:hover {
+  background: var(--color-surface-hover);
+}
+
+.cell {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+.name {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+}
+
+.email {
+  color: var(--color-text-muted);
+}
+
+.email:hover {
+  color: var(--color-accent);
+}
+
+.date {
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.skeleton {
+  display: block;
+  width: 70%;
+  max-width: 180px;
+  height: 14px;
+  /* Matches the line box of a loaded row so the table does not resize. */
+  margin: 5px 0;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+      90deg,
+      var(--color-skeleton) 25%,
+      var(--color-skeleton-highlight) 50%,
+      var(--color-skeleton) 75%
+    )
+    0 0 / 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.skeletonRow:hover {
+  background: none;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .table,
+  .body {
+    display: block;
+  }
+
+  /* Hidden visually but kept in the accessibility tree. */
+  .head {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--space-2) var(--space-3);
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cell {
+    display: block;
+    padding: 0;
+    border: 0;
+  }
+
+  .cell::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .wide {
+    grid-column: 1 / -1;
+  }
+
+  .date {
+    white-space: normal;
+  }
+
+  .email {
+    display: inline-block;
+    padding: var(--space-1) 0;
+  }
+}
